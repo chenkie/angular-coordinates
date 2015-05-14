@@ -1,0 +1,40 @@
+.coordinate-input {
+	height: 75px;
+	font-size: 30px;
+}
+
+html, body, #map_canvas {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+#map_canvas {
+    position: relative;
+}
+
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.coordinates-form {
+	position: absolute;
+	top: 25px;	
+}
+
+.info-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 200px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #ffffff;
+}

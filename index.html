@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Coordinates</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-app="angular-coordinates" ng-controller="mapController">
+	<div id="map_canvas">
+	    <ui-gmap-google-map center="map.center" zoom="map.zoom">
+	    	<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+	   	</ui-gmap-google-map>
+	</div>
+	<div class="col-sm-6 col-sm-offset-3 coordinates-form">
+		<div class="col-sm-6">
+			<input type="text" ng-model="lat" class="form-control coordinate-input" placeholder="Enter Latitude" />
+		</div>
+		<div class="col-sm-6">
+			<input type="text" ng-model="lon" class="form-control coordinate-input" placeholder="Enter Longitude" />
+		</div>
+	</div>
+	<div class="info-box">
+		<div class="col-sm-6">
+		    <h3>Degees, Minutes, Seconds</h3>
+			<h3><span class="label label-primary">Latitude</span> <span ng-bind-html="lat | coordinateFilter:'toDMS':'lat'"></span></h3> 
+			<h3><span class="label label-primary">Longitude</span> <span ng-bind-html="lon | coordinateFilter:'toDMS':'lon'"></span></h3>
+		</div>		
+		<div class="col-sm-6">
+			<h3>Decimal Degrees</h3>
+			<h3><span class="label label-primary">Latitude</span> {{lat | coordinateFilter:'toDD':'lat':4}}</h3>
+			<h3><span class="label label-primary">Longitude</span> {{lon | coordinateFilter:'toDD':'lon':4}}</h3>
+		</div>
+	</div>
+</body>
+	
+	<!-- Application Dependencies -->
+	<script src="bower_components/angular/angular.js"></script>	
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
+	<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+
+	<!-- Application Scripts -->
+	<script type='text/javascript' src='scripts/app.js'></script>
+	<script type='text/javascript' src='scripts/mapController.js'></script>
+	<script type='text/javascript' src='scripts/coordinateFilter.js'></script>
+	<script type='text/javascript' src='scripts/functions.js'></script>
+</html>
